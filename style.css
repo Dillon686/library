@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url("images/inaki-del-olmo-NIJuEQw0RKg-unsplash.jpeg");
+  background-size: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#attribution {
+  position: absolute;
+  bottom: 1%;
+  left: 41%;
+  background-color: white;
+  color: black;
+  font-size: 12pt;
+  opacity: 80%;
+}
+
+#main-container {
+  background-color:#e5e6e8;
+  width: 60vw;
+  height: 90vh;
+  margin-top: 1%;
+  display: grid;
+  grid-template-rows: 1fr 5fr;
+  grid-template-columns: 1fr;
+  border: 8px #6c1512 solid;
+}
+
+#header {
+  grid-column: span;
+  color:#6c1512;
+  font-size: 46pt;
+  text-align: center;
+  font-family: Apple Chancery, cursive;
+}
+
+#header span {
+  color: black;
+  font-size: 20pt;
+}
