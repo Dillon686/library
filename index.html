@@ -6,12 +6,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Library Project</title>
   <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </head>
 <body>
   <div id="main-container"><div id="attribution">Photo by <a href="https://unsplash.com/@inakihxz?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Iñaki del Olmo</a> on <a href="https://unsplash.com/s/photos/library?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></div>
     <div id="header">Library Project <span>by Dillon686</span></div>
-    <div>Test</div>
+    <div id="button-bar"><button id="new-book">NEW BOOK</button></div>
+    <div id="book-display"></div>
+  </div>
+  <div id="form-modal">
+    <h1>Book Submission Form</h1><br>
+    <form>
+      <label for="title-response">Title: <input type="text" id="title-response" name="title-response" placeholder="The Giver"></label><br>
+      <label for="title-response">Author: <input type="text" id="author-response" name="author-response" placeholder="Lois Lowry"></label><br>
+      <label for="title-response">Genre: <input type="text" id="genre-response" name="genre-response" placeholder="Fiction"></label><br>
+      <label for="title-response">Completed?:<input type="text" id="read-response" name="read-response" placeholder="No"></label><br>
+      <button id="submit-button">Submit</button>
+      <button type="reset" id="close-button">Close</button>
+    </form>
   </div>
 </body>
 </html>
