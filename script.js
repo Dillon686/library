@@ -6,7 +6,7 @@ let titleResponse = document.getElementById("title-response");
 let authorResponse = document.getElementById("author-response");
 let genreResponse = document.getElementById("genre-response");
 let readResponse = document.getElementById("read-response");
-let deleteBook = document.getElementsByClassName(".delete-book");
+let deleteButtons = document.getElementsByClassName("delete-book");
 
 function Book(title, author, genre, read) {
   this.title = title;
