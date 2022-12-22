@@ -1,5 +1,5 @@
 let myLibrary = []
-let bookDisplay = document.getElementById("book-display");
+let bookContainer = document.getElementById("book-display");
 let newBook = document.getElementById("new-book");
 let modalDisplay = document.getElementById("form-modal");
 let titleResponse = document.getElementById("title-response");
@@ -22,7 +22,54 @@ function addBookToLibrary (title, author, genre, read) {
 
 function displayBook(){
   for (let book in myLibrary){
-    bookDisplay.innerHTML += `<table><tr><td><span>Title:</span> ${myLibrary[book].title}</td><td><span>Author:</span> ${myLibrary[book].author}</td><td><button class="delete-book" data-index="${book}">X</button></td></tr><tr><td><span>Genre:</span> ${myLibrary[book].genre}</td><td><span>Completed:</span> ${myLibrary[book].hasRead}</td></tr>`;
+    //create DOM elements for book display table
+    let bookTable = document.createElement("table");
+    let row1 = document.createElement("tr");
+    let row2 = document.createElement("tr");
+    let titleCell = document.createElement("td");
+    let authorCell = document.createElement("td");
+    let genreCell = document.createElement("td");
+    let readCell = document.createElement("td");
+    let titleContent = document.createElement("p");
+    let authorContent = document.createElement("p");
+    let genreContent = document.createElement("p");
+    let readContent = document.createElement("p");
+    let deleteButton = document.createElement("button");
+    let titleSpan = document.createElement("span");
+    let authorSpan = document.createElement("span");
+    let genreSpan = document.createElement("span");
+    let readSpan = document.createElement("span");
+   
+
+    //Add attributes to DOM elements
+    titleContent.textContent += myLibrary[book].title;
+    authorContent.textContent += myLibrary[book].author;
+    genreContent.textContent += myLibrary[book].genre;
+    readContent.textContent += myLibrary[book].hasRead;
+    deleteButton.classList += "delete-book";
+    deleteButton.textContent = "X"
+    titleSpan.textContent += "Title: "
+    authorSpan.textContent += "Author: "
+    genreSpan.textContent += "Genre: "
+    readSpan.textContent += "Completed?: "
+
+    //append DOM elements
+    bookTable.append(row1);
+    bookTable.append(row2);
+    titleCell.append(titleSpan);
+    titleCell.append(titleContent)
+    row1.append(titleCell);
+    authorCell.append(authorSpan);
+    authorCell.append(authorContent);
+    row1.append(authorCell);
+    row1.append(deleteButton);
+    genreCell.append(genreSpan);
+    genreCell.append(genreContent);
+    row2.append(genreCell);
+    readCell.append(readSpan);
+    readCell.append(readContent);
+    row2.append(readCell);
+    bookContainer.append(bookTable);
   }
 }
 
@@ -42,6 +89,6 @@ document.querySelector("#submit-button").onclick = function(event) {
   let readResponse = document.getElementById("read-response");
   addBookToLibrary(titleResponse.value, authorResponse.value, genreResponse.value, readResponse.value);
   modalDisplay.style.display = "none";
-  bookDisplay.innerHTML = '';
+  bookContainer.innerHTML = "";
   displayBook();
 }
