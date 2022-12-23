@@ -35,6 +35,7 @@ function displayBook(){
     let genreContent = document.createElement("p");
     let readContent = document.createElement("p");
     let deleteButton = document.createElement("button");
+    let readStatusButton = document.createElement("button");
     let titleSpan = document.createElement("span");
     let authorSpan = document.createElement("span");
     let genreSpan = document.createElement("span");
@@ -47,7 +48,10 @@ function displayBook(){
     genreContent.textContent += myLibrary[book].genre;
     readContent.textContent += myLibrary[book].hasRead;
     deleteButton.classList += "delete-book";
+    deleteButton.setAttribute("data-index", book);
     deleteButton.textContent = "X"
+    readStatusButton.classList += "read-status";
+    readStatusButton.textContent = 'Change "Completed" status';
     titleSpan.textContent += "Title: "
     authorSpan.textContent += "Author: "
     genreSpan.textContent += "Genre: "
@@ -69,11 +73,36 @@ function displayBook(){
     readCell.append(readSpan);
     readCell.append(readContent);
     row2.append(readCell);
+    row2.append(readStatusButton)
     bookContainer.append(bookTable);
+
+    //function to remove the book entry
+    deleteButton.onclick = function (){
+      myLibrary.splice(deleteButton.dataset.index, 1);
+      bookContainer.innerHTML = "";
+      displayBook();
+    };
+
+     //function to change Completed status
+    readStatusButton.onclick = function (){
+
+      if (myLibrary[book].hasRead.toLowerCase() == "yes"){
+        myLibrary[book].hasRead = "No";
+      } else {
+        myLibrary[book].hasRead = "Yes";
+      }
+      bookContainer.innerHTML = "";
+      displayBook();
+    };
+    
   }
 }
 
 newBook.onclick = function(){
+  titleResponse.value = ""
+  authorResponse.value = ""
+  genreResponse.value = ""
+  readResponse.value = ""
   modalDisplay.style.display = "block";
 }
 
@@ -92,3 +121,4 @@ document.querySelector("#submit-button").onclick = function(event) {
   bookContainer.innerHTML = "";
   displayBook();
 }
+
