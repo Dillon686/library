@@ -49,7 +49,7 @@ function displayBook(){
     readContent.textContent += myLibrary[book].hasRead;
     deleteButton.classList += "delete-book";
     deleteButton.setAttribute("data-index", book);
-    deleteButton.textContent = "X"
+    deleteButton.textContent = "Remove Book"
     readStatusButton.classList += "read-status";
     readStatusButton.textContent = 'Change "Completed" status';
     titleSpan.textContent += "Title: "

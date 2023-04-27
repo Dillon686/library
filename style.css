@@ -12,8 +12,8 @@ body {
 
 table {
   border: #6c1512 solid thick;
-  background-color: #da9f635d;
-  
+  background-color: #6C4212;
+  color: white;
 }
 
 td {
@@ -48,7 +48,8 @@ button {
   display: grid;
   grid-template-rows: 1fr .5fr 5fr;
   grid-template-columns: 1fr;
-  border: 8px #6c1512 solid;
+  border: 12px #6c1512 solid;
+  border-radius: 20px;
 }
 
 #header {
